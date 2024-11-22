@@ -29,6 +29,9 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelectorAll('.agent_name').forEach(el => {
             el.textContent = formData.agentName || '[agent name]';
         });
+        document.querySelectorAll('.intent').forEach(el => {
+            el.textContent = formData.intent || '[intent]';
+        });
     };
 
     const toggleSidebar = () => {
