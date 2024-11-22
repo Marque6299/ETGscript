@@ -47,13 +47,13 @@
         <div class="main-content">
             <header>
                 <div class="logo">
-                    <h1><i class="fas fa-comments"></i> Interaction Management</h1>
+                    <h1><i class="fas fa-comments"></i> ETG Chat Script</h1>
                 </div>
                 <div class="search-container">
-                    <input type="text" class="search-input" placeholder="Search scripts...">
                     <button class="search-button">
                         <i class="fas fa-search"></i>
                     </button>
+                    <input type="text" class="search-input" placeholder="Search scripts...">
                 </div>
                 <button id="toggleSidebar" class="toggle-sidebar-btn">
                     <i class="fas fa-cog"></i>
@@ -62,47 +62,187 @@
 
             <nav class="category-nav">
                 <div class="nav-buttons">
-                    <button class="nav-btn active"><i class="fas fa-door-open"></i> Opening</button>
-                    <button class="nav-btn"><i class="fas fa-comment-dots"></i> Helpful Statements</button>
-                    <button class="nav-btn"><i class="fas fa-door-closed"></i> Closing</button>
-                    <button class="nav-btn"><i class="fas fa-pause"></i> Hold</button>
-                    <button class="nav-btn"><i class="fas fa-credit-card"></i> Payment</button>
-                    <button class="nav-btn"><i class="fas fa-shield-alt"></i> Handling Objections</button>
-                    <button class="nav-btn"><i class="fas fa-exchange-alt"></i> Change</button>
-                    <button class="nav-btn"><i class="fas fa-undo"></i> Refunds</button>
-                    <button class="nav-btn"><i class="fas fa-times-circle"></i> Cancel</button>
-                    <button class="nav-btn"><i class="fas fa-calendar-alt"></i> Schedule Change</button>
-                    <button class="nav-btn"><i class="fas fa-signature"></i> Name Correction</button>
-                    <button class="nav-btn"><i class="fas fa-phone"></i> YY Contact</button>
+                    <button id="opening-section" class="nav-btn active"><i class="fas fa-door-open"></i> Opening</button>
+                    <button id="helpful_statement-section" class="nav-btn"><i class="fas fa-comment-dots"></i> Helpful Statements</button>
+                    <button id="closing-section" class="nav-btn"><i class="fas fa-door-closed"></i> Closing</button>
+                    <button id="hold-section" class="nav-btn"><i class="fas fa-pause"></i> Hold</button>
+                    <button id="payment-section" class="nav-btn"><i class="fas fa-credit-card"></i> Payment</button>
+                    <button id="handling_objections-section" class="nav-btn"><i class="fas fa-shield-alt"></i> Handling Objections</button>
+                    <button id="change-section" class="nav-btn"><i class="fas fa-exchange-alt"></i> Change</button>
+                    <button id="refund-section" class="nav-btn"><i class="fas fa-undo"></i> Refunds</button>
+                    <button id="cancel-section" class="nav-btn"><i class="fas fa-times-circle"></i> Cancel</button>
+                    <button id="schedule_change-section" class="nav-btn"><i class="fas fa-calendar-alt"></i> Schedule Change</button>
+                    <button id="name_correction-section" class="nav-btn"><i class="fas fa-signature"></i> Name Correction</button>
+                    <button id="yycontact-section" class="nav-btn"><i class="fas fa-phone"></i> YY Contact</button>
                 </div>
             </nav>
 
             <main>
+                <!--Opening-->
                 <section id="opening-section" class="interaction-section">
-                    <div class="section-header">
-                        <h3><i class="fas fa-clipboard-list"></i> Asking for Order Number</h3>
-                    </div>
-                    <div class="script-content">
-                        <div class="script-card" onclick="copy(this)">
-                            Hello, <span class="customer_name"></span>! My name is <span class="agent_name"></span>. To assist you, I will need your order number.
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h3><i class="fas fa-clipboard-list"></i> Asking for Order Number</h3>
+                        </div>
+                        <div class="script-content">
+                            <div class="script-card" onclick="copyToClipboard(this)">
+                                Hello, <span class="customer_name"></span>! My name is <span class="agent_name"></span>. To assist you, I will need your order number.
+                            </div>
                         </div>
                     </div>
-
-                    <div class="section-header">
+                    <div class="section-card">
+                        <div class="section-header">
                         <h3><i class="fas fa-clock"></i> Chat Opening (asking to wait)</h3>
-                    </div>
-                    <div class="script-content">
-                        <div class="script-card" onclick="copy(this)">
-                            Hello, <span class="customer_name"></span>! My name is <span class="agent_name"></span>. Please give me a moment to review your request.
+                        </div>
+                        <div class="script-content">
+                            <div class="script-card" onclick="copyToClipboard(this)">
+                                Hello, <span class="customer_name"></span>! My name is <span class="agent_name"></span>. Please give me a moment to review your request.
+                         </div>
                         </div>
                     </div>
-
-                    <div class="section-header">
-                        <h3><i class="fas fa-question-circle"></i> Chat Opening (asking to state the request)</h3>
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h3><i class="fas fa-question-circle"></i> Chat Opening (asking to state the request)</h3>
+                        </div>
+                        <div class="script-content">
+                            <div class="script-card" onclick="copyToClipboard(this)">
+                                Hello, <span class="customer_name"></span>! My name is <span class="agent_name"></span>. How may I help you with your booking?
+                            </div>
+                        </div>
                     </div>
-                    <div class="script-content">
-                        <div class="script-card" onclick="copy(this)">
-                            Hello, <span class="customer_name"></span>! My name is <span class="agent_name"></span>. How may I help you with your booking?
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h3><i class="fas fa-file-circle-xmark"></i> When the customer doesn't have the order number</h3>
+                        </div>
+                        <div class="script-content">
+                            <div class="script-card" onclick="copyToClipboard(this)">
+                                To assist you, I need to find your booking first. Please provide one of the following:</br>E-ticket number: </br>Booking / airline reference number: </br>Transaction number / approval code:
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h3><i class="fas fa-file-excel"></i> Order not found (potentially booked with other provider)</h3>
+                        </div>
+                        <div class="script-content">
+                            <div class="script-card" onclick="copyToClipboard(this)">
+                                We're sorry to inform you that the booking reference does not match a ticket purchased through our website. It appears that your ticket was acquired through another company. If you have any additional questions or concerns, please don't hesitate to reach out to us again.
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--Opening End-->
+                <!--Helpful Statements-->
+                <section id="helpful_statement-section" class="interaction-section">
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h3><i class="fas fa-user-shield"></i> Assurance Statement</h3>
+                        </div>
+                        <div class="script-content">
+                            <div class="script-card" onclick="copyToClipboard(this)">
+                                I'll be happy to help you with your request, please give me some time to review the <strong>information</strong>.
+                            </div>
+                            <div class="script-card" onclick="copyToClipboard(this)">
+                                I'll be happy to help you with your request, please give me some time to review the <strong>policy</strong>.
+                            </div>
+                            <div class="script-card" onclick="copyToClipboard(this)">
+                                I'll be happy to help you with your request, please give me some time to review the <strong>details</strong>.
+                            </div>
+                            <div class="script-card" onclick="copyToClipboard(this)">
+                                I'll be happy to help you with your request, please give me some time to review the <strong>availability</strong>.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-card">
+                        <div class="section-header">
+                        <h3><i class="fas fa-face-frown-open"></i> Empathy Statements</h3>
+                        </div>
+                        <div class="script-content">
+                            <div class="script-card" onclick="copyToClipboard(this)">
+                                I can appreciate your point. Let me see what I can do.
+                            </div>
+                            <div class="script-card" onclick="copyToClipboard(this)">
+                                I am really sorry to hear that. Let me see what I can do to help.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-card">
+                        <div class="section-header">
+                        <h3><i class="fas fa-rectangle-xmark"></i> Apology Statements</h3>
+                        </div>
+                        <div class="script-content">
+                            <div class="script-card" onclick="copyToClipboard(this)">
+                                I understand your frustration. I will do my best to help you.
+                            </div>
+                            <div class="script-card" onclick="copyToClipboard(this)">
+                                I apologize for the inconvenience. I will do my best to provide you the best option.
+                            </div>
+                            <div class="script-card" onclick="copyToClipboard(this)">
+                                I am really sorry this happened. Let me see if I can find a solution for your concern.
+                            </div>
+                            <div class="script-card" onclick="copyToClipboard(this)">
+                                I’m sorry you are having this problem. Let’s see what I can do to solve this for you.
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--Helpfull Statement End-->
+                <!--Closing-->
+                <section id="closing-section" class="interaction-section">
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h3><i class="fas fa-question"></i> Question before Closing</h3>
+                        </div>
+                        <div class="script-content">
+                            <div class="script-card" onclick="copyToClipboard(this)">
+                                Is there anything else I can help you with?
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h3><i class="fas fa-handshake-simple"></i> Thanking and checking if customer needs any further help.</h3>
+                        </div>
+                        <div class="script-content">
+                            <div class="script-card" onclick="copyToClipboard(this)">
+                                It was a pleasure to have assisted you today . Would there be anything else I can help you with?.
+                            </div>
+                            <div class="script-card" onclick="copyToClipboard(this)">
+                                I'm glad I have been able to assist you today. Please let me know if you have any further questions or concerns.
+                            </div>
+                            <div class="script-card" onclick="copyToClipboard(this)">
+                                Thank you,  and have a nice day!	
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h3><i class="fas fa-hands-praying"></i> The customer is already unhappy with our service we need to use this script instead of using a standard closing script.</h3>
+                        </div>
+                        <div class="script-content">
+                            <div class="script-card" onclick="copyToClipboard(this)">
+                                We apologize for the inconvenience, but we're unable to assist you at this moment. Your satisfaction is important to us, and we're continuously striving to improve our service. Please feel free to reach out in the future for any assistance. This chat will now close.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h3><i class="fas fa-hands-praying"></i> To use when the customer doesn't respond for 2 minutes. Send it and wait for another 3 min.</h3>
+                        </div>
+                        <div class="script-content">
+                            <div class="script-card" onclick="copyToClipboard(this)">
+                                I didn't receive any response, and I want to make sure we're still connected. Let me know by responding to the chat. Otherwise, this chat will close in 3 minutes.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h3><i class="fas fa-hands-praying"></i> Close chat after no response for 5 min</h3>
+                        </div>
+                        <div class="script-content">
+                            <div class="script-card" onclick="copyToClipboard(this)">
+                                I still haven't received any response, and it seems that you are no longer connected. This chat will now be closed. If you need further assistance, please start a new chat. Thank you.
+                            </div>
                         </div>
                     </div>
                 </section>
