@@ -101,7 +101,9 @@ header {
     align-items: center;
     position: sticky;
     top: 0;
+    width: 100vw; /* Ensures header spans full viewport width */
     z-index: 999;
+    box-shadow: var(--shadow-sm);
 }
 
 .logo h1 {
@@ -118,14 +120,16 @@ header {
     background: #BC6C25;
     border-radius: 8px;
     padding: 0.25rem;
+    width: 100%; /* Ensures search container spans the full width */
+    max-width: 500px; /* Optional: Limit maximum width for usability */
 }
 
 .search-input {
     padding: 0.75rem 1rem;
     border: none;
     border-radius: 6px 0 0 6px;
-    width: 300px;
-    background:#FEFAE0;
+    width: 100%;
+    background: #FEFAE0;
     transition: var(--transition);
 }
 
@@ -155,18 +159,24 @@ header {
 /* Navigation Styles */
 .category-nav {
     position: sticky;
-    top: 79.5px;
-    z-index: 90;
+    top: 79.49px; /* Sticky position directly below the header */
+    z-index: 999;
     background: var(--defaul-background);
+    width: 100vw; /* Full viewport width */
+    box-shadow: var(--shadow-sm); /* Optional: Add shadow for separation */
 }
 
 .nav-buttons {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
     padding: 0.5rem;
     gap: 0.5rem;
-    flex-wrap: nowrap;
+    overflow-x: auto; /* Ensure overflow scrollability if needed */
+}
+
+.nav-buttons::-webkit-scrollbar {
+    display: none;
 }
 
 .nav-btn {
@@ -180,6 +190,10 @@ header {
     transition: var(--transition);
     border-radius: 8px;
     color: white;
+    text-align: center;
+    white-space: nowrap; /* Prevent text from wrapping */
+    flex-shrink: 1; /* Allow buttons to shrink */
+    min-width: 120px; /* Set a minimum width for the buttons */
 }
 
 .nav-btn i {
@@ -194,7 +208,7 @@ header {
 
 /* Main Content Styles */
 main {
-    max-width: 1700px;
+    max-width: 1200px;
     margin: 2rem;
     padding: 0 1rem;
 }
@@ -249,7 +263,6 @@ main {
     overflow: hidden;
     text-align: left;
     vertical-align: middle;
-    display: flex;
     align-items: center;
 
 }
@@ -469,51 +482,6 @@ main {
     outline: 2px solid var(--secondary);
     outline-offset: 2px;
 }
-
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
-}
-
-/* Dark Mode Support */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --bg: #1a1a1a;
-        --text: #e0e0e0;
-        --card-bg: #2d2d2d;
-        --card-hover: #3d3d3d;
-        --border: #404040;
-    }
-
-    .search-input {
-        background: rgba(255, 255, 255, 0.1);
-        color: white;
-    }
-
-    .search-input::placeholder {
-        color: rgba(255, 255, 255, 0.6);
-    }
-
-    .script-card {
-        background-color: var(--card-bg);
-        border-color: var(--border);
-    }
-
-    .form-group input {
-        background-color: var(--bg);
-        color: var(--text);
-        border-color: var(--border);
-    }
-
-    .category-nav {
-        background-color: var(--card-bg);
-    }
-}
-
 /* Print Styles */
 @media print {
     .sidebar,
