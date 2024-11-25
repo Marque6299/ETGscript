@@ -106,7 +106,7 @@ header {
     box-shadow: var(--shadow-sm);
 }
 
-.logo h1 {
+.logo h1 .hyperlink {
     display: flex;
     align-items: center;
     gap: 0.5rem;
