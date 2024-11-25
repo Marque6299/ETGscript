@@ -24,10 +24,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // Helper Functions
     const updatePlaceholders = () => {
         document.querySelectorAll('.customer_name').forEach(el => {
-            el.textContent = formData.customerName || '[customer name]';
+            el.textContent = formData.customerName || '[Cx name]';
         });
         document.querySelectorAll('.agent_name').forEach(el => {
-            el.textContent = formData.agentName || '[agent name]';
+            el.textContent = formData.agentName || '[Agent name]';
         });
         document.querySelectorAll('.intent').forEach(el => {
             el.textContent = formData.intent || '[intent]';
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     window.copyToClipboard = (element) => {
-        const text = element.innerHTML.trim().replace(/<br\s*\/?>/g, '\n');
+        const text = element.textContent.trim().replace(/<br\s*\/?>/g, '\n');
         navigator.clipboard.writeText(text)
             .then(() => showTooltip('Copied!', element))
             .catch(err => {
